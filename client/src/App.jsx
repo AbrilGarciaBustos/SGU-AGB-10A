@@ -2,23 +2,23 @@ import { useState, useEffect } from 'react';
 import UserForm from './components/UserForm';
 import UserTable from './components/UserTable';
 import Swal from 'sweetalert2';
-import './App.css'; // Importaremos los estilos
+import './App.css'; 
 
-// Esta es la URL de tu backend (el server Spring Boot)
+
 const API_URL = `http://${import.meta.env.VITE_API_HOST}:${import.meta.env.VITE_API_PORT}${import.meta.env.VITE_API_BASE}`;
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null); // Para editar
+  const [selectedUser, setSelectedUser] = useState(null); 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Cargar usuarios cuando el componente se monta
+
   useEffect(() => {
     fetchUsers();
   }, []);
 
-  // --- FUNCIÓN 1: OBTENER TODOS (GET) ---
+ 
   const fetchUsers = async () => {
     setIsLoading(true);
     setError(null);
@@ -37,12 +37,12 @@ function App() {
     }
   };
 
-  // --- FUNCIÓN 2: CREAR (POST) y ACTUALIZAR (PUT) ---
+  
   const handleSave = async (user) => {
     let method = 'POST';
     let url = API_URL;
 
-    // Si el usuario tiene ID, es una actualización (PUT)
+   
     if (user.id) {
       method = 'PUT';
       url = `${API_URL}/${user.id}`;
@@ -61,13 +61,11 @@ function App() {
         throw new Error(`Error ${response.status}: No se pudo guardar el usuario`);
       }
 
-      // await response.json(); // Descomenta si tu backend devuelve el usuario guardado
-
-      // Refrescar la lista de usuarios y limpiar el formulario
+    
       fetchUsers();
       setSelectedUser(null);
 
-      // Agregar mensaje de éxito
+      
       await Swal.fire({
         icon: 'success',
         title: '¡Éxito!',
@@ -86,9 +84,9 @@ function App() {
     }
   };
 
-  // --- FUNCIÓN 3: ELIMINAR (DELETE) ---
+  
   const handleDelete = async (userId) => {
-    // Usar SweetAlert2 para la confirmación
+    
     const result = await Swal.fire({
       title: '¿Estás seguro?',
       text: "No podrás revertir esta acción",
@@ -110,17 +108,17 @@ function App() {
           throw new Error(`Error ${response.status}: No se pudo eliminar el usuario`);
         }
 
-        // Mostrar mensaje de éxito
+        
         await Swal.fire(
           '¡Eliminado!',
           'El usuario ha sido eliminado.',
           'success'
         );
 
-        // Refrescar la lista de usuarios
+        
         fetchUsers();
       } catch (err) {
-        // Mostrar mensaje de error
+        
         await Swal.fire(
           'Error',
           err.message,
@@ -132,7 +130,7 @@ function App() {
     }
   };
 
-  // --- Funciones auxiliares para el formulario ---
+
   const handleEdit = (user) => {
     setSelectedUser(user);
   };
@@ -141,7 +139,7 @@ function App() {
     setSelectedUser(null);
   };
 
-  // --- Renderizado ---
+  
  return (
     <div className="app-container">
       <header className="app-header">

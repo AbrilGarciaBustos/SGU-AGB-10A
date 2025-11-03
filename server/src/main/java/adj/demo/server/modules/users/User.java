@@ -3,7 +3,7 @@ package adj.demo.server.modules.users;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users") // Nombre de la tabla en la BD
+@Table(name = "users")
 public class User {
 
     @Id
@@ -19,8 +19,7 @@ public class User {
     @Column(nullable = false)
     private String phoneNumber;
 
-    // --- Getters y Setters ---
-    // (Puedes generarlos automáticamente con tu IDE)
+
 
     public Long getId() {
         return id;

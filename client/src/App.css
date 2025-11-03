@@ -1,4 +1,4 @@
-/* Contenedor principal */
+
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-/* Encabezado */
+
 .app-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -23,7 +23,7 @@
   max-width: 800px;
 }
 
-/* Secciones principales */
+
 .form-section, .table-section {
   background: white;
   border-radius: 15px;
@@ -34,13 +34,13 @@
   max-width: 800px;
 }
 
-/* Título de la tabla */
+
 .table-section h2 {
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-/* Formulario */
+
 .user-form {
   max-width: 500px;
   margin: 0 auto;
@@ -76,7 +76,7 @@
   box-shadow: 0 0 0 3px rgba(26, 106, 255, 0.1);
 }
 
-/* Botones del formulario */
+
 .form-buttons {
   display: flex;
   gap: 1rem;
@@ -109,7 +109,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Tabla */
+
 .user-table {
   width: 100%;
   border-collapse: separate;
@@ -139,7 +139,7 @@
   gap: 0.5rem;
 }
 
-/* Mensajes */
+
 .error-message {
   background-color: #fff3f3;
   color: #dc3545;
@@ -149,7 +149,7 @@
   text-align: center;
 }
 
-/* Responsividad */
+
 @media (max-width: 768px) {
   .app-container {
     padding: 1rem;
