@@ -1,0 +1,43 @@
+import React from 'react';
+
+// Recibimos las 3 props de App.jsx
+function UserTable({ users, onEdit, onDelete }) {
+
+  if (users.length === 0) {
+    return <p>No hay usuarios registrados.</p>;
+  }
+
+  return (
+    <table className="user-table">
+      <thead>
+        <tr>
+          <th>Nombre Completo</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {/* Iteramos sobre la lista de usuarios */}
+        {users.map((user) => (
+          <tr key={user.id}>
+            <td>{user.fullName}</td>
+            <td>{user.email}</td>
+            <td>{user.phoneNumber}</td>
+            <td className="actions">
+              {/* Botones que llaman a las funciones en App.jsx */}
+              <button className="btn btn-edit" onClick={() => onEdit(user)}>
+                Editar
+              </button>
+              <button className="btn btn-delete" onClick={() => onDelete(user.id)}>
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+export default UserTable;
